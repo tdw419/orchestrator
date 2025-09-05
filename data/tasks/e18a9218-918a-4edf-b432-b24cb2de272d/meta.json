@@ -1,0 +1,5 @@
+{
+  "id": "e18a9218-918a-4edf-b432-b24cb2de272d",
+  "goal": "Test the vscode_to_llm extension in VS Code: 1) Open VS Code in the projects/vscode_to_llm directory, 2) Install/load the extension if needed, 3) Test key features like converting code to LLM-friendly format, 4) Verify the extension works correctly and take screenshots of the results",
+  "createdAt": "2025-09-04T22:07:21.476Z"
+}

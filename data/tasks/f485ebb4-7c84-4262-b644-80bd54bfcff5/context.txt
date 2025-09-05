@@ -1,0 +1,2 @@
+Context:
+- Goal: Install and configure the LM Studio Orchestrator VS Code extension from projects/vscode_to_llm directory. The extension needs: 1) npm install dependencies, 2) compile TypeScript code, 3) install .vsix file to VS Code, 4) verify all commands work properly

@@ -1,0 +1,5 @@
+{
+  "id": "f485ebb4-7c84-4262-b644-80bd54bfcff5",
+  "goal": "Install and configure the LM Studio Orchestrator VS Code extension from projects/vscode_to_llm directory. The extension needs: 1) npm install dependencies, 2) compile TypeScript code, 3) install .vsix file to VS Code, 4) verify all commands work properly",
+  "createdAt": "2025-09-04T21:56:40.377Z"
+}

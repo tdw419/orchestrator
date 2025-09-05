@@ -1,0 +1,2 @@
+Context:
+- Goal: Test the vscode_to_llm extension in VS Code: 1) Open VS Code in the projects/vscode_to_llm directory, 2) Install/load the extension if needed, 3) Test key features like converting code to LLM-friendly format, 4) Verify the extension works correctly and take screenshots of the results
