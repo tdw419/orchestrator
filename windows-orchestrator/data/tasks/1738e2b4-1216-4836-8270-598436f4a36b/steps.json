@@ -1,0 +1,457 @@
+[
+  {
+    "i": 1,
+    "planned": {
+      "thought": "brief reasoning",
+      "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+      "params": {
+        "result": false
+      }
+    },
+    "attempts": [
+      {
+        "n": 1,
+        "action": {
+          "thought": "brief reasoning",
+          "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+          "params": {
+            "result": false
+          }
+        },
+        "result": {
+          "status": 503,
+          "data": {
+            "error": "desktop_driver_unreachable",
+            "message": "fetch failed"
+          }
+        }
+      },
+      {
+        "n": 2,
+        "action": {
+          "thought": "brief reasoning",
+          "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+          "params": {
+            "result": false
+          }
+        },
+        "result": {
+          "status": 503,
+          "data": {
+            "error": "desktop_driver_unreachable",
+            "message": "fetch failed"
+          }
+        }
+      }
+    ],
+    "context": {
+      "learned_issues": [
+        "network",
+        "no_progress_detected"
+      ],
+      "attempted_fixes": []
+    },
+    "result": {
+      "error": "desktop_driver_unreachable",
+      "message": "fetch failed"
+    }
+  },
+  {
+    "i": 2,
+    "planned": {
+      "thought": "brief reasoning",
+      "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+      "params": {
+        "result": true
+      }
+    },
+    "attempts": [
+      {
+        "n": 1,
+        "action": {
+          "thought": "brief reasoning",
+          "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+          "params": {
+            "result": true
+          }
+        },
+        "result": {
+          "status": 503,
+          "data": {
+            "error": "desktop_driver_unreachable",
+            "message": "fetch failed"
+          }
+        }
+      },
+      {
+        "n": 2,
+        "action": {
+          "thought": "brief reasoning",
+          "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+          "params": {
+            "result": true
+          }
+        },
+        "result": {
+          "status": 503,
+          "data": {
+            "error": "desktop_driver_unreachable",
+            "message": "fetch failed"
+          }
+        }
+      }
+    ],
+    "context": {
+      "learned_issues": [
+        "network",
+        "no_progress_detected"
+      ],
+      "attempted_fixes": []
+    },
+    "result": {
+      "error": "desktop_driver_unreachable",
+      "message": "fetch failed"
+    }
+  },
+  {
+    "i": 3,
+    "planned": {
+      "thought": "brief reasoning",
+      "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+      "params": {
+        "result": true
+      }
+    },
+    "attempts": [
+      {
+        "n": 1,
+        "action": {
+          "thought": "brief reasoning",
+          "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+          "params": {
+            "result": true
+          }
+        },
+        "result": {
+          "status": 503,
+          "data": {
+            "error": "desktop_driver_unreachable",
+            "message": "fetch failed"
+          }
+        }
+      },
+      {
+        "n": 2,
+        "action": {
+          "thought": "brief reasoning",
+          "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+          "params": {
+            "result": true
+          }
+        },
+        "result": {
+          "status": 503,
+          "data": {
+            "error": "desktop_driver_unreachable",
+            "message": "fetch failed"
+          }
+        }
+      }
+    ],
+    "context": {
+      "learned_issues": [
+        "network",
+        "no_progress_detected"
+      ],
+      "attempted_fixes": []
+    },
+    "result": {
+      "error": "desktop_driver_unreachable",
+      "message": "fetch failed"
+    }
+  },
+  {
+    "i": 4,
+    "planned": {
+      "thought": "brief reasoning",
+      "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+      "params": {
+        "result": true
+      }
+    },
+    "attempts": [
+      {
+        "n": 1,
+        "action": {
+          "thought": "brief reasoning",
+          "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+          "params": {
+            "result": true
+          }
+        },
+        "result": {
+          "status": 503,
+          "data": {
+            "error": "desktop_driver_unreachable",
+            "message": "fetch failed"
+          }
+        }
+      },
+      {
+        "n": 2,
+        "action": {
+          "thought": "brief reasoning",
+          "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+          "params": {
+            "result": true
+          }
+        },
+        "result": {
+          "status": 503,
+          "data": {
+            "error": "desktop_driver_unreachable",
+            "message": "fetch failed"
+          }
+        }
+      }
+    ],
+    "context": {
+      "learned_issues": [
+        "network",
+        "no_progress_detected"
+      ],
+      "attempted_fixes": []
+    },
+    "result": {
+      "error": "desktop_driver_unreachable",
+      "message": "fetch failed"
+    }
+  },
+  {
+    "i": 5,
+    "planned": {
+      "thought": "brief reasoning",
+      "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+      "params": {
+        "result": true
+      }
+    },
+    "attempts": [
+      {
+        "n": 1,
+        "action": {
+          "thought": "brief reasoning",
+          "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+          "params": {
+            "result": true
+          }
+        },
+        "result": {
+          "status": 503,
+          "data": {
+            "error": "desktop_driver_unreachable",
+            "message": "fetch failed"
+          }
+        }
+      },
+      {
+        "n": 2,
+        "action": {
+          "thought": "brief reasoning",
+          "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+          "params": {
+            "result": true
+          }
+        },
+        "result": {
+          "status": 503,
+          "data": {
+            "error": "desktop_driver_unreachable",
+            "message": "fetch failed"
+          }
+        }
+      }
+    ],
+    "context": {
+      "learned_issues": [
+        "network",
+        "no_progress_detected"
+      ],
+      "attempted_fixes": []
+    },
+    "result": {
+      "error": "desktop_driver_unreachable",
+      "message": "fetch failed"
+    }
+  },
+  {
+    "i": 6,
+    "planned": {
+      "thought": "brief reasoning",
+      "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+      "params": {
+        "result": true
+      }
+    },
+    "attempts": [
+      {
+        "n": 1,
+        "action": {
+          "thought": "brief reasoning",
+          "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+          "params": {
+            "result": true
+          }
+        },
+        "result": {
+          "status": 503,
+          "data": {
+            "error": "desktop_driver_unreachable",
+            "message": "fetch failed"
+          }
+        }
+      },
+      {
+        "n": 2,
+        "action": {
+          "thought": "brief reasoning",
+          "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+          "params": {
+            "result": true
+          }
+        },
+        "result": {
+          "status": 503,
+          "data": {
+            "error": "desktop_driver_unreachable",
+            "message": "fetch failed"
+          }
+        }
+      }
+    ],
+    "context": {
+      "learned_issues": [
+        "network",
+        "no_progress_detected"
+      ],
+      "attempted_fixes": []
+    },
+    "result": {
+      "error": "desktop_driver_unreachable",
+      "message": "fetch failed"
+    }
+  },
+  {
+    "i": 7,
+    "planned": {
+      "thought": "brief reasoning",
+      "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+      "params": {
+        "result": true
+      }
+    },
+    "attempts": [
+      {
+        "n": 1,
+        "action": {
+          "thought": "brief reasoning",
+          "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+          "params": {
+            "result": true
+          }
+        },
+        "result": {
+          "status": 503,
+          "data": {
+            "error": "desktop_driver_unreachable",
+            "message": "fetch failed"
+          }
+        }
+      },
+      {
+        "n": 2,
+        "action": {
+          "thought": "brief reasoning",
+          "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+          "params": {
+            "result": true
+          }
+        },
+        "result": {
+          "status": 503,
+          "data": {
+            "error": "desktop_driver_unreachable",
+            "message": "fetch failed"
+          }
+        }
+      }
+    ],
+    "context": {
+      "learned_issues": [
+        "network",
+        "no_progress_detected"
+      ],
+      "attempted_fixes": []
+    },
+    "result": {
+      "error": "desktop_driver_unreachable",
+      "message": "fetch failed"
+    }
+  },
+  {
+    "i": 8,
+    "planned": {
+      "thought": "brief reasoning",
+      "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+      "params": {
+        "result": true
+      }
+    },
+    "attempts": [
+      {
+        "n": 1,
+        "action": {
+          "thought": "brief reasoning",
+          "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+          "params": {
+            "result": true
+          }
+        },
+        "result": {
+          "status": 503,
+          "data": {
+            "error": "desktop_driver_unreachable",
+            "message": "fetch failed"
+          }
+        }
+      },
+      {
+        "n": 2,
+        "action": {
+          "thought": "brief reasoning",
+          "action": "screenshot|move_mouse|click_mouse|scroll|type_text|key_press|open_app|run_powershell|autodev_run|verify_result|spawn_subtask|spawn_template|done",
+          "params": {
+            "result": true
+          }
+        },
+        "result": {
+          "status": 503,
+          "data": {
+            "error": "desktop_driver_unreachable",
+            "message": "fetch failed"
+          }
+        }
+      }
+    ],
+    "context": {
+      "learned_issues": [
+        "network"
+      ],
+      "attempted_fixes": []
+    },
+    "result": {
+      "error": "desktop_driver_unreachable",
+      "message": "fetch failed"
+    }
+  }
+]

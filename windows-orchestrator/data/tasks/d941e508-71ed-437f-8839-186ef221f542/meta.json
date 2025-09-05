@@ -1,0 +1,5 @@
+{
+  "id": "d941e508-71ed-437f-8839-186ef221f542",
+  "goal": "MANDATORY TESTING: Use spawn_template with vscode_extension_test to validate the VS Code extension. The orchestrator MUST: 1) Test compilation using verify_result, 2) Test each command (lmstudio.openChat, lmstudio.createTask) using verify_result, 3) Fix ANY issues found, 4) Re-test until ALL verifications pass. Do NOT mark done without successful verification of EVERY component.",
+  "createdAt": "2025-09-04T22:17:02.783Z"
+}

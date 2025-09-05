@@ -1,0 +1,2 @@
+Context:
+- Goal: MANDATORY TESTING: Use spawn_template with vscode_extension_test to validate the VS Code extension. The orchestrator MUST: 1) Test compilation using verify_result, 2) Test each command (lmstudio.openChat, lmstudio.createTask) using verify_result, 3) Fix ANY issues found, 4) Re-test until ALL verifications pass. Do NOT mark done without successful verification of EVERY component.

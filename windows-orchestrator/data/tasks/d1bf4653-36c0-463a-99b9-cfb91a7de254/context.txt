@@ -1,0 +1,2 @@
+Context:
+- Goal: Use spawn_template with vscode_extension_test to thoroughly validate the VS Code extension. Test: 1) Compilation works, 2) Key commands (lmstudio.openChat, lmstudio.createTask) execute without errors, 3) Fix any issues found, 4) Re-test until ALL verifications pass. Do NOT mark done until every test passes successfully.

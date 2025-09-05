@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +21,7 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .task-card {
-            background: white;
+            background: #865a5a;
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
@@ -77,20 +78,382 @@
         }
         .refresh-btn:hover { background: #1d4ed8; }
         .loading { color: #6b7280; font-style: italic; }
+        .params-section {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        .params-header {
+            background: #e2e8f0;
+            padding: 8px 12px;
+            font-weight: 600;
+            color: #374151;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 13px;
+        }
+        .params-header:hover { background: #cbd5e1; }
+        .params-content {
+            padding: 12px;
+            display: none;
+        }
+        .params-content.open { display: block; }
+        .preset-buttons {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .preset-btn {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .preset-btn:hover { background: #e2e8f0; }
+        .preset-btn.active { background: #2563eb; color: white; }
+        .param-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 8px;
+        }
+        .param-control {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .param-label {
+            font-size: 11px;
+            font-weight: 500;
+            color: #6b7280;
+        }
+        .param-input {
+            padding: 4px 6px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        .param-value {
+            font-size: 10px;
+            color: #9ca3af;
+            text-align: center;
+        }
+        .context-panel {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.4;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .context-title {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .notes-section {
+            background: #fffbeb;
+            border: 1px solid #fbbf24;
+            border-radius: 6px;
+            padding: 12px;
+            margin-top: 10px;
+        }
+        .note-item {
+            margin-bottom: 8px;
+            padding: 6px;
+            background: white;
+            border-radius: 4px;
+            border-left: 3px solid #fbbf24;
+        }
+        .add-note {
+            margin-top: 10px;
+            display: flex;
+            gap: 8px;
+        }
+        .add-note input {
+            flex: 1;
+            padding: 6px 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        .add-note button {
+            background: #059669;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .add-note button:hover { background: #047857; }
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 15px;
+        }
+        .tab {
+            padding: 8px 16px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            color: #6b7280;
+            border-bottom: 2px solid transparent;
+            font-size: 14px;
+        }
+        .tab.active {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+            font-weight: 500;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .log-entry {
+            padding: 8px 0;
+            border-bottom: 1px solid #f3f4f6;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+        .log-timestamp {
+            color: #6b7280;
+            margin-right: 8px;
+        }
+        .log-role {
+            font-weight: 600;
+            margin-right: 8px;
+        }
+        .log-role.user { color: #059669; }
+        .log-role.assistant { color: #2563eb; }
+        .log-role.system { color: #dc2626; }
+        .log-role.planner { color: #7c3aed; }
+        .logs-panel {
+            max-height: 400px;
+            overflow-y: auto;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 10px;
+        }
+        .auto-refresh-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+        .auto-refresh-toggle input[type="checkbox"] {
+            transform: scale(1.2);
+        }
+        .refresh-status {
+            color: #6b7280;
+            font-size: 12px;
+        }
+        .context-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+        .context-json {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .section-header {
+            font-weight: bold;
+            color: #374151;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        .section-item {
+            margin-left: 10px;
+            margin-bottom: 3px;
+        }
+        .score-badge {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            margin-right: 6px;
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>🤖 Orchestrator Task Viewer</h1>
         <button class="refresh-btn" onclick="loadTasks()">Refresh Tasks</button>
+        <button class="refresh-btn" onclick="runLlmSmokeTest()" style="background:#059669; margin-left:8px;">Run LLM Smoke Test</button>
         <span id="status" class="loading">Loading...</span>
+        <div id="smoke-test-status" style="margin-top:6px; font-size:12px; color:#6b7280;"></div>
     </div>
     
+    <div class="task-card" id="chat-card">
+        <div class="task-goal">LM Studio Chat</div>
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap: wrap; margin-bottom:10px;">
+            <label style="font-size:12px; color:#6b7280;">Endpoint</label>
+            <input id="lm-endpoint" style="flex:1; min-width:280px; padding:6px 10px; border:1px solid #d1d5db; border-radius:4px;" value="http://localhost:1234/v1" />
+            <label style="font-size:12px; color:#6b7280;">Model</label>
+            <select id="lm-model" style="width:240px; padding:6px 10px; border:1px solid #d1d5db; border-radius:4px;" onchange="saveLastModel()">
+                <option value="">Select model...</option>
+            </select>
+            <button class="refresh-btn" onclick="refreshModels()" title="Fetch models from LM Studio">🔄</button>
+            <label style="font-size:12px; color:#6b7280;">Admin Token</label>
+            <input id="orch-admin-token" type="password" style="width:200px; padding:6px 10px; border:1px solid #d1d5db; border-radius:4px;" placeholder="optional" oninput="saveAdminToken()" />
+        </div>
+        <div style="margin-bottom:8px;">
+            <textarea id="lm-system" placeholder="System instruction (optional)" style="width:100%; height:60px; padding:8px; border:1px solid #d1d5db; border-radius:6px;"></textarea>
+        </div>
+        <div class="params-section">
+            <div class="params-header" onclick="toggleParams()">
+                <span>Parameters & Presets</span>
+                <span id="params-arrow">▼</span>
+            </div>
+            <div class="params-content" id="params-content">
+                <div class="preset-buttons">
+                    <button class="preset-btn" onclick="applyPreset('Creative')">Creative</button>
+                    <button class="preset-btn" onclick="applyPreset('Balanced')">Balanced</button>
+                    <button class="preset-btn" onclick="applyPreset('Precise')">Precise</button>
+                    <button class="preset-btn" onclick="applyPreset('Deterministic')">Deterministic</button>
+                    <button class="preset-btn" onclick="applyPreset('Coding')">Coding</button>
+                    <button class="preset-btn" onclick="clearPreset()">Custom</button>
+                </div>
+                <div class="param-grid">
+                    <div class="param-control">
+                        <label class="param-label">Temperature</label>
+                        <input type="range" id="temperature" class="param-input" min="0" max="2" step="0.1" value="0.7" oninput="updateParamValue('temperature', this.value)">
+                        <span class="param-value" id="temperature-value">0.7</span>
+                    </div>
+                    <div class="param-control">
+                        <label class="param-label">Top P</label>
+                        <input type="range" id="top_p" class="param-input" min="0" max="1" step="0.05" value="0.9" oninput="updateParamValue('top_p', this.value)">
+                        <span class="param-value" id="top_p-value">0.9</span>
+                    </div>
+                    <div class="param-control">
+                        <label class="param-label">Presence Penalty</label>
+                        <input type="range" id="presence_penalty" class="param-input" min="-2" max="2" step="0.1" value="0" oninput="updateParamValue('presence_penalty', this.value)">
+                        <span class="param-value" id="presence_penalty-value">0.0</span>
+                    </div>
+                    <div class="param-control">
+                        <label class="param-label">Frequency Penalty</label>
+                        <input type="range" id="frequency_penalty" class="param-input" min="-2" max="2" step="0.1" value="0" oninput="updateParamValue('frequency_penalty', this.value)">
+                        <span class="param-value" id="frequency_penalty-value">0.0</span>
+                    </div>
+                    <div class="param-control">
+                        <label class="param-label">Max Tokens</label>
+                        <input type="number" id="max_tokens" class="param-input" min="1" max="4096" value="1024" oninput="updateParamValue('max_tokens', this.value)">
+                        <span class="param-value" id="max_tokens-value">1024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="chat-log" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:10px; max-height:220px; overflow-y:auto; font-family:'Segoe UI',sans-serif; font-size:14px;">
+            <div style="color:#6b7280; font-style:italic;">No messages yet</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:10px;">
+            <input id="chat-input" placeholder="Type a message and press Enter..." style="flex:1; padding:10px; border:1px solid #d1d5db; border-radius:4px;" onkeypress="if(event.key==='Enter'){sendChat()}" />
+            <button class="refresh-btn" onclick="sendChat()">Send</button>
+            <button class="refresh-btn" style="background:#059669" onclick="createTaskFromChat()">Create Task</button>
+        </div>
+        <div id="chat-status" class="loading" style="margin-top:6px;"></div>
+    </div>
+
+    <!-- Template Launcher Section -->
+    <div class="task-card" id="template-card">
+        <div class="task-goal">Quick Templates</div>
+        <div style="margin-bottom:10px;">
+            <label style="font-size:12px; color:#6b7280; display:block; margin-bottom:4px;">Template:</label>
+            <select id="template-select" style="width:100%; padding:6px 10px; border:1px solid #d1d5db; border-radius:4px; margin-bottom:8px;" onchange="showTemplateInputs()">
+                <option value="">Select a template...</option>
+                <option value="build_test_fix">Build → Test → Fix</option>
+                <option value="vscode_extension_test">VS Code Extension Test</option>
+                <option value="validate_and_fix">Validate & Fix</option>
+            </select>
+        </div>
+        <div id="template-inputs" style="display:none; margin-bottom:10px;">
+            <!-- Template-specific inputs will be inserted here -->
+        </div>
+        <div style="display:flex; gap:8px;">
+            <button class="refresh-btn" onclick="runTemplate()" style="background:#059669;">Run Template</button>
+        </div>
+        <div id="template-status" class="loading" style="margin-top:6px;"></div>
+    </div>
+
+    <!-- Quick Verification Panel -->
+    <div class="task-card" id="verify-card" style="border-left: 3px solid #f59e0b;">
+        <div class="task-goal">Quick Verification</div>
+        <div style="display:flex; gap:8px; margin-bottom:10px; align-items:center;">
+            <select id="verify-method" style="padding:6px; border:1px solid #d1d5db; border-radius:4px; font-size:12px;">
+                <option value="file_exists">File Exists</option>
+                <option value="api_call">API Call</option>
+                <option value="test">Run Test</option>
+            </select>
+            <input id="verify-input" placeholder="Enter path, URL, or command..." style="flex:1; padding:6px 10px; border:1px solid #d1d5db; border-radius:4px; font-size:12px;" />
+        </div>
+        <div style="display:flex; gap:8px;">
+            <button class="refresh-btn" onclick="runQuickVerify()" style="background:#f59e0b;">Verify</button>
+            <button class="refresh-btn" onclick="createVerifyTask()" style="background:#7c3aed;">Create Task</button>
+        </div>
+        <div id="verify-status" class="loading" style="margin-top:6px;"></div>
+    </div>
+
+    <!-- Desktop Driver Status -->
+    <div class="task-card" id="driver-card" style="border-left: 3px solid #10b981;">
+        <div class="task-goal">Desktop Driver Status</div>
+        <div style="display:flex; gap:8px; align-items:center; margin-bottom:10px;">
+            <div id="driver-status" style="padding:4px 8px; border-radius:4px; font-size:12px; font-weight:500;">
+                <span id="driver-indicator">⚪</span> <span id="driver-text">Checking...</span>
+            </div>
+            <div style="flex:1;"></div>
+            <button class="refresh-btn" onclick="checkDriverStatus()" style="background:#6b7280;">🔄</button>
+            <button class="refresh-btn" onclick="testScreenshot()" style="background:#10b981;">📸 Test</button>
+        </div>
+        <div id="driver-details" style="font-size:11px; color:#6b7280; margin-bottom:8px;"></div>
+        <div id="driver-action-status" class="loading" style="margin-top:6px;"></div>
+    </div>
+
     <div id="tasks"></div>
 
     <script>
         const API_BASE = (location.origin && location.origin.startsWith('http')) ? location.origin : 'http://127.0.0.1:4100';
+        let LM_API_BASE = 'http://localhost:1234/v1';
+        let LM_MODEL = '';
         let tasks = {};
+        let sseConnections = new Map(); // taskId -> EventSource mapping
+        
+        // Chat parameter presets (from lmstudio_tuner_gui.py)
+        const PRESETS = {
+            "Creative": {"temperature": 1.1, "top_p": 0.95, "presence_penalty": 0.1, "frequency_penalty": 0.0, "max_tokens": 1024},
+            "Balanced": {"temperature": 0.7, "top_p": 0.9, "presence_penalty": 0.0, "frequency_penalty": 0.0, "max_tokens": 1024},
+            "Precise": {"temperature": 0.3, "top_p": 0.85, "presence_penalty": 0.0, "frequency_penalty": 0.0, "max_tokens": 1024},
+            "Deterministic": {"temperature": 0.0, "top_p": 1.0, "presence_penalty": 0.0, "frequency_penalty": 0.0, "max_tokens": 1024},
+            "Coding": {"temperature": 0.15, "top_p": 0.9, "presence_penalty": -0.1, "frequency_penalty": 0.1, "max_tokens": 2048}
+        };
+        let currentPreset = null;
 
         async function loadTasks() {
             const status = document.getElementById('status');
@@ -100,6 +463,29 @@
             try {
                 // Get health check to see if server is running
                 const health = await fetch(`${API_BASE}/health`).then(r => r.json());
+                if (health && health.OPENAI_API_BASE) {
+                    LM_API_BASE = String(health.OPENAI_API_BASE);
+                    const ep = document.getElementById('lm-endpoint');
+                    if (ep) ep.value = LM_API_BASE;
+                }
+                if (health && health.ORCH_MODEL) {
+                    LM_MODEL = String(health.ORCH_MODEL);
+                    const mm = document.getElementById('lm-model');
+                    if (mm && !mm.value) {
+                        // Add as option if not already present
+                        const option = document.createElement('option');
+                        option.value = LM_MODEL;
+                        option.textContent = LM_MODEL;
+                        mm.appendChild(option);
+                        mm.value = LM_MODEL;
+                    }
+                }
+                
+                // Load last used model from localStorage
+                loadLastModel();
+                
+                // Check desktop driver status on load
+                checkDriverStatus();
                 
                 // Get task list from API
                 const taskList = await fetch(`${API_BASE}/tasks`).then(r => r.json());
@@ -135,41 +521,767 @@
             }
         }
 
+        // ---- LM Studio Chat ----
+        const chat = { messages: [] };
+
+        function renderChat() {
+            const log = document.getElementById('chat-log');
+            if (!log) return;
+            if (chat.messages.length === 0) {
+                log.innerHTML = '<div style="color:#6b7280; font-style:italic;">No messages yet</div>';
+                return;
+            }
+            log.innerHTML = chat.messages.map(m => {
+                const roleColor = m.role === 'user' ? '#111827' : (m.role === 'assistant' ? '#2563eb' : '#6b7280');
+                const roleName = m.role.charAt(0).toUpperCase() + m.role.slice(1);
+                return `<div style="margin:6px 0;"><span style=\"font-weight:600; color:${roleColor};">${roleName}:</span> <span>${escapeHtml(m.content)}</span></div>`;
+            }).join('');
+            log.scrollTop = log.scrollHeight;
+        }
+
+        async function refreshModels() {
+            const select = document.getElementById('lm-model');
+            const lastModel = localStorage.getItem('lm-last-model');
+            
+            try {
+                const ep = document.getElementById('lm-endpoint').value.trim().replace(/\/?$/, '');
+                const url = `${ep}/models`;
+                const data = await fetch(url).then(r => r.json()).catch(() => null);
+                
+                // Clear existing options except the first one
+                select.innerHTML = '<option value="">Select model...</option>';
+                
+                if (data && Array.isArray(data.data)) {
+                    const models = data.data.map(m => m.id).filter(Boolean).sort();
+                    
+                    // Populate dropdown with models
+                    models.forEach(model => {
+                        const option = document.createElement('option');
+                        option.value = model;
+                        option.textContent = model;
+                        select.appendChild(option);
+                    });
+                    
+                    // Set last used model or first model as default
+                    if (lastModel && models.includes(lastModel)) {
+                        select.value = lastModel;
+                        LM_MODEL = lastModel;
+                    } else if (models.length > 0) {
+                        select.value = models[0];
+                        LM_MODEL = models[0];
+                        localStorage.setItem('lm-last-model', models[0]);
+                    }
+                }
+            } catch (_) {
+                // If failed, at least restore last model if available
+                if (lastModel) {
+                    const option = document.createElement('option');
+                    option.value = lastModel;
+                    option.textContent = lastModel;
+                    select.appendChild(option);
+                    select.value = lastModel;
+                    LM_MODEL = lastModel;
+                }
+            }
+        }
+        
+        function saveLastModel() {
+            const select = document.getElementById('lm-model');
+            if (select.value) {
+                localStorage.setItem('lm-last-model', select.value);
+                LM_MODEL = select.value;
+            }
+        }
+        
+        function loadLastModel() {
+            const lastModel = localStorage.getItem('lm-last-model');
+            if (lastModel) {
+                const select = document.getElementById('lm-model');
+                const option = document.createElement('option');
+                option.value = lastModel;
+                option.textContent = lastModel;
+                select.appendChild(option);
+                select.value = lastModel;
+                LM_MODEL = lastModel;
+            }
+        }
+        
+        // Parameter handling functions
+        function toggleParams() {
+            const content = document.getElementById('params-content');
+            const arrow = document.getElementById('params-arrow');
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                arrow.textContent = '▼';
+            } else {
+                content.classList.add('open');
+                arrow.textContent = '▲';
+            }
+        }
+        
+        function updateParamValue(param, value) {
+            const valueEl = document.getElementById(`${param}-value`);
+            if (valueEl) {
+                valueEl.textContent = value;
+            }
+            // Clear active preset when manually adjusting
+            if (currentPreset) {
+                clearPreset();
+            }
+        }
+        
+        function applyPreset(presetName) {
+            const preset = PRESETS[presetName];
+            if (!preset) return;
+            
+            currentPreset = presetName;
+            
+            // Update UI elements
+            document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Apply values to controls
+            Object.entries(preset).forEach(([param, value]) => {
+                const control = document.getElementById(param);
+                const valueEl = document.getElementById(`${param}-value`);
+                if (control && valueEl) {
+                    control.value = value;
+                    valueEl.textContent = value;
+                }
+            });
+        }
+        
+        function clearPreset() {
+            currentPreset = null;
+            document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+        
+        function getCurrentParams() {
+            return {
+                temperature: parseFloat(document.getElementById('temperature').value),
+                top_p: parseFloat(document.getElementById('top_p').value),
+                presence_penalty: parseFloat(document.getElementById('presence_penalty').value),
+                frequency_penalty: parseFloat(document.getElementById('frequency_penalty').value),
+                max_tokens: parseInt(document.getElementById('max_tokens').value)
+            };
+        }
+        
+        // Template launcher functions
+        function showTemplateInputs() {
+            const select = document.getElementById('template-select');
+            const inputsDiv = document.getElementById('template-inputs');
+            const template = select.value;
+            
+            if (!template) {
+                inputsDiv.style.display = 'none';
+                return;
+            }
+            
+            let inputsHTML = '';
+            
+            if (template === 'build_test_fix') {
+                inputsHTML = `
+                    <div style="margin-bottom:8px;">
+                        <label style="font-size:11px; color:#6b7280; display:block; margin-bottom:2px;">Project Directory:</label>
+                        <input id="template-project-dir" style="width:100%; padding:4px 6px; border:1px solid #d1d5db; border-radius:4px; font-size:12px;" 
+                               value="${process.cwd() || ''}" placeholder="Project directory path" />
+                    </div>
+                    <div style="margin-bottom:8px;">
+                        <label style="font-size:11px; color:#6b7280; display:block; margin-bottom:2px;">Test Command:</label>
+                        <input id="template-test-command" style="width:100%; padding:4px 6px; border:1px solid #d1d5db; border-radius:4px; font-size:12px;" 
+                               value="npm test" placeholder="npm test || pytest || dotnet test" />
+                    </div>
+                `;
+            } else if (template === 'vscode_extension_test') {
+                inputsHTML = `
+                    <div style="margin-bottom:8px;">
+                        <label style="font-size:11px; color:#6b7280; display:block; margin-bottom:2px;">Extension Path:</label>
+                        <input id="template-extension-path" style="width:100%; padding:4px 6px; border:1px solid #d1d5db; border-radius:4px; font-size:12px;" 
+                               value="C:\\zion\\wwwroot\\projects\\orchestrator\\orchestrator\\projects\\vscode_to_llm" placeholder="VS Code extension path" />
+                    </div>
+                    <div style="margin-bottom:8px;">
+                        <label style="font-size:11px; color:#6b7280; display:block; margin-bottom:2px;">Commands to Test:</label>
+                        <input id="template-commands" style="width:100%; padding:4px 6px; border:1px solid #d1d5db; border-radius:4px; font-size:12px;" 
+                               value="lmstudio.openChat,lmstudio.createTask" placeholder="command1,command2,..." />
+                    </div>
+                `;
+            } else if (template === 'validate_and_fix') {
+                inputsHTML = `
+                    <div style="margin-bottom:8px;">
+                        <label style="font-size:11px; color:#6b7280; display:block; margin-bottom:2px;">Target to Validate:</label>
+                        <input id="template-target" style="width:100%; padding:4px 6px; border:1px solid #d1d5db; border-radius:4px; font-size:12px;" 
+                               value="project" placeholder="project, extension, service, etc." />
+                    </div>
+                `;
+            }
+            
+            inputsDiv.innerHTML = inputsHTML;
+            inputsDiv.style.display = 'block';
+        }
+        
+        async function runTemplate() {
+            const select = document.getElementById('template-select');
+            const statusEl = document.getElementById('template-status');
+            const template = select.value;
+            
+            if (!template) {
+                statusEl.textContent = 'Please select a template first.';
+                return;
+            }
+            
+            statusEl.textContent = 'Creating template task...';
+            
+            try {
+                let inputs = {};
+                
+                if (template === 'build_test_fix') {
+                    inputs = {
+                        project_dir: document.getElementById('template-project-dir')?.value || '',
+                        test_command: document.getElementById('template-test-command')?.value || ''
+                    };
+                } else if (template === 'vscode_extension_test') {
+                    const commands = document.getElementById('template-commands')?.value || '';
+                    inputs = {
+                        extension_path: document.getElementById('template-extension-path')?.value || '',
+                        commands: commands.split(',').map(c => c.trim()).filter(Boolean)
+                    };
+                } else if (template === 'validate_and_fix') {
+                    inputs = {
+                        target: document.getElementById('template-target')?.value || ''
+                    };
+                }
+                
+                const body = {
+                    goal: `spawn_template:${template}`,
+                    template,
+                    inputs
+                };
+                
+                const resp = await fetch(`${API_BASE}/tasks`, { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'application/json' }, 
+                    body: JSON.stringify(body) 
+                });
+                
+                const result = await resp.json();
+                
+                if (resp.ok) {
+                    statusEl.textContent = `Created template task ${result.id}`;
+                    loadTasks(); // Refresh task list
+                } else {
+                    statusEl.textContent = `Error: ${result.error || 'Unknown error'}`;
+                }
+                
+            } catch (e) {
+                statusEl.textContent = `Error: ${String(e.message || e)}`;
+            }
+        }
+        
+        // Verification panel functions
+        async function runQuickVerify() {
+            const method = document.getElementById('verify-method').value;
+            const input = document.getElementById('verify-input').value.trim();
+            const statusEl = document.getElementById('verify-status');
+            
+            if (!input) {
+                statusEl.textContent = 'Please enter a path, URL, or command.';
+                return;
+            }
+            
+            statusEl.textContent = 'Running verification...';
+            
+            try {
+                const body = {
+                    goal: `Quick verification: ${method} check for ${input}`,
+                    action: 'verify_result',
+                    params: {
+                        check_method: method,
+                        [method === 'file_exists' ? 'path' : method === 'api_call' ? 'url' : 'script']: input
+                    }
+                };
+                
+                const resp = await fetch(`${API_BASE}/tasks`, { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'application/json' }, 
+                    body: JSON.stringify(body) 
+                });
+                
+                const result = await resp.json();
+                
+                if (resp.ok) {
+                    statusEl.textContent = `Verification task created: ${result.id}`;
+                    loadTasks();
+                } else {
+                    statusEl.textContent = `Error: ${result.error || 'Unknown error'}`;
+                }
+                
+            } catch (e) {
+                statusEl.textContent = `Error: ${String(e.message || e)}`;
+            }
+        }
+        
+        async function createVerifyTask() {
+            const method = document.getElementById('verify-method').value;
+            const input = document.getElementById('verify-input').value.trim();
+            const statusEl = document.getElementById('verify-status');
+            
+            if (!input) {
+                statusEl.textContent = 'Please enter a path, URL, or command.';
+                return;
+            }
+            
+            statusEl.textContent = 'Creating verification task...';
+            
+            try {
+                const goal = `Perform ${method} verification on ${input} and provide detailed results`;
+                
+                const resp = await fetch(`${API_BASE}/tasks`, { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'application/json' }, 
+                    body: JSON.stringify({ goal }) 
+                });
+                
+                const result = await resp.json();
+                
+                if (resp.ok) {
+                    statusEl.textContent = `Created verification task: ${result.id}`;
+                    loadTasks();
+                } else {
+                    statusEl.textContent = `Error: ${result.error || 'Unknown error'}`;
+                }
+                
+            } catch (e) {
+                statusEl.textContent = `Error: ${String(e.message || e)}`;
+            }
+        }
+        
+        // Desktop driver status monitoring
+        async function checkDriverStatus() {
+            const indicator = document.getElementById('driver-indicator');
+            const text = document.getElementById('driver-text');
+            const details = document.getElementById('driver-details');
+            
+            indicator.textContent = '⚪';
+            text.textContent = 'Checking...';
+            details.textContent = '';
+            
+            try {
+                const resp = await fetch('http://127.0.0.1:39990/computer-use', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'health' })
+                });
+                
+                if (resp.ok) {
+                    const data = await resp.json();
+                    indicator.textContent = '🟢';
+                    text.textContent = 'Online';
+                    details.textContent = `Desktop driver responding (${resp.status})`;
+                } else {
+                    indicator.textContent = '🟡';
+                    text.textContent = `HTTP ${resp.status}`;
+                    details.textContent = 'Driver responding but returned error status';
+                }
+            } catch (e) {
+                indicator.textContent = '🔴';
+                text.textContent = 'Offline';
+                details.textContent = `Cannot connect to desktop driver: ${String(e.message || e)}`;
+            }
+        }
+        
+        async function testScreenshot() {
+            const statusEl = document.getElementById('driver-action-status');
+            statusEl.textContent = 'Taking screenshot...';
+            
+            try {
+                const body = { goal: 'Test desktop driver with a quick screenshot' };
+                const resp = await fetch(`${API_BASE}/tasks`, { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'application/json' }, 
+                    body: JSON.stringify(body) 
+                });
+                
+                const result = await resp.json();
+                
+                if (resp.ok) {
+                    statusEl.textContent = `Screenshot test task created: ${result.id}`;
+                    loadTasks();
+                } else {
+                    statusEl.textContent = `Error: ${result.error || 'Unknown error'}`;
+                }
+                
+            } catch (e) {
+                statusEl.textContent = `Error: ${String(e.message || e)}`;
+            }
+        }
+
+        async function sendChat() {
+            const input = document.getElementById('chat-input');
+            const sys = document.getElementById('lm-system');
+            const ep = document.getElementById('lm-endpoint');
+            const modelEl = document.getElementById('lm-model');
+            const statusEl = document.getElementById('chat-status');
+            const text = (input.value || '').trim();
+            if (!text) return;
+
+            const endpoint = (ep.value || LM_API_BASE).trim().replace(/\/?$/, '');
+            const model = (modelEl.value || LM_MODEL || '').trim();
+            if (!model) { statusEl.textContent = 'Select a model (use Models button).'; return; }
+
+            // Seed system once
+            if (sys.value && !chat.messages.some(m => m.role === 'system')) {
+                chat.messages.push({ role: 'system', content: sys.value });
+            }
+            chat.messages.push({ role: 'user', content: text });
+            renderChat();
+            input.value = '';
+            statusEl.textContent = 'Calling LM Studio...';
+
+            try {
+                // Use orchestrator proxy to avoid CORS issues
+                const params = getCurrentParams();
+                const body = { model, messages: chat.messages, ...params };
+                const headers = { 'Content-Type': 'application/json' };
+                if (ADMIN_TOKEN && ADMIN_TOKEN.length > 0) {
+                    // Send admin token so server can authorize proxy usage
+                    headers['Authorization'] = `Bearer ${ADMIN_TOKEN}`;
+                }
+                const resp = await fetch(`${API_BASE}/proxy/chat`, { method: 'POST', headers, body: JSON.stringify(body) });
+                if (!resp.ok) {
+                    const t = await resp.text();
+                    throw new Error(`HTTP ${resp.status}: ${t}`);
+                }
+                const json = await resp.json();
+                const content = (json && json.choices && json.choices[0] && json.choices[0].message && json.choices[0].message.content) || '';
+                chat.messages.push({ role: 'assistant', content });
+                renderChat();
+                statusEl.textContent = 'OK';
+            } catch (e) {
+                statusEl.textContent = 'Error contacting LM Studio';
+                chat.messages.push({ role: 'assistant', content: `Error: ${String(e.message || e)}` });
+                renderChat();
+            }
+        }
+
+        async function createTaskFromChat() {
+            const lastUser = [...chat.messages].reverse().find(m => m.role === 'user');
+            if (!lastUser) { alert('Type a goal first in the chat input.'); return; }
+            try {
+                const resp = await fetch(`${API_BASE}/tasks`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ goal: lastUser.content }) });
+                const js = await resp.json();
+                if (resp.ok) {
+                    chat.messages.push({ role: 'assistant', content: `Created task ${js.id}. It should appear below.` });
+                    renderChat();
+                    loadTasks();
+                } else {
+                    alert('Failed to create task: ' + (js.error || 'unknown'));
+                }
+            } catch (e) {
+                alert('Failed to create task: ' + String(e.message || e));
+            }
+        }
+
+        async function addNote(taskId, noteText) {
+            try {
+                await fetch(`${API_BASE}/tasks/${taskId}/notes`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ note: noteText })
+                });
+                // Reload the task to show the new note
+                loadTasks();
+            } catch (error) {
+                console.error('Failed to add note:', error);
+                alert('Failed to add note: ' + error.message);
+            }
+        }
+
+        async function switchTab(taskId, tabName) {
+            // Hide all tab contents for this task
+            document.querySelectorAll(`[data-task="${taskId}"] .tab-content`).forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll(`[data-task="${taskId}"] .tab`).forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.querySelector(`[data-task="${taskId}"] .tab-content[data-tab="${tabName}"]`).classList.add('active');
+            document.querySelector(`[data-task="${taskId}"] .tab[data-tab="${tabName}"]`).classList.add('active');
+            
+            // Close existing SSE connection when switching away from activity tab
+            if (tabName !== 'activity' && sseConnections.has(taskId)) {
+                sseConnections.get(taskId).close();
+                sseConnections.delete(taskId);
+                console.log(`Closed SSE for ${taskId}`);
+            }
+
+            // Start SSE stream if switching to activity tab
+            if (tabName === 'activity') {
+                startSseStream(taskId);
+            }
+        }
+
+        function startSseStream(taskId, retryCount = 0) {
+            if (sseConnections.has(taskId)) {
+                sseConnections.get(taskId).close();
+            }
+
+            const logsContainer = document.querySelector(`[data-task="${taskId}"] .logs-panel`);
+            if (retryCount === 0) {
+                logsContainer.innerHTML = '<div style="color: #6b7280; font-style: italic;">Connecting to live log stream...</div>';
+            }
+
+            const eventSource = new EventSource(`${API_BASE}/tasks/${taskId}/stream`);
+            sseConnections.set(taskId, eventSource);
+            console.log(`Started SSE for ${taskId} (attempt ${retryCount + 1})`);
+
+            let isFirstMessage = true;
+
+            eventSource.onmessage = function(event) {
+                if (isFirstMessage) {
+                    logsContainer.innerHTML = ''; // Clear "Connecting..." message
+                    isFirstMessage = false;
+                }
+                
+                try {
+                    // Handle special stream end marker
+                    if (event.data.includes('STREAM_END')) {
+                        eventSource.close();
+                        sseConnections.delete(taskId);
+                        const endMarker = `<div class="log-entry" style="background:#d1fae5; padding: 5px; text-align:center; font-weight:bold;">Log stream ended.</div>`;
+                        logsContainer.innerHTML += endMarker;
+                        console.log(`SSE stream ended for ${taskId}`);
+                        return;
+                    }
+
+                    const log = JSON.parse(event.data);
+                    const timestamp = new Date(log.ts).toLocaleTimeString();
+                    const content = typeof log.content === 'string' ? log.content : JSON.stringify(log.content);
+                    
+                    const logEntry = `
+                        <div class="log-entry">
+                            <span class="log-timestamp">${timestamp}</span>
+                            <span class="log-role ${log.role}">${escapeHtml(log.role)}:</span>
+                            <span>${escapeHtml(content.slice(0, 200))}${content.length > 200 ? '...' : ''}</span>
+                        </div>
+                    `;
+                    logsContainer.innerHTML += logEntry;
+                    logsContainer.scrollTop = logsContainer.scrollHeight;
+                } catch (e) {
+                    console.warn('Received non-JSON message from stream:', event.data, e);
+                }
+            };
+
+            eventSource.onerror = function(err) {
+                eventSource.close();
+                sseConnections.delete(taskId);
+                console.error('EventSource failed:', err);
+
+                const maxRetries = 5;
+                if (retryCount < maxRetries) {
+                    const backoff = Math.pow(2, retryCount) * 1000; // Exponential backoff
+                    if (logsContainer) {
+                        logsContainer.innerHTML += `<div style="color: #dc2626;">Log stream failed. Retrying in ${backoff / 1000}s...</div>`;
+                    }
+                    setTimeout(() => startSseStream(taskId, retryCount + 1), backoff);
+                } else {
+                    if (logsContainer) {
+                        logsContainer.innerHTML += '<div style="color: #dc2626;">Log stream connection failed permanently after multiple retries.</div>';
+                    }
+                }
+            };
+        }
+
+        function escapeHtml(text) {
+            if (typeof text !== 'string') return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        async function toggleContextFormat(taskId, showJson) {
+            const textContext = document.querySelector(`[data-task="${taskId}"] .context-text`);
+            const jsonContext = document.querySelector(`[data-task="${taskId}"] .context-json`);
+            
+            if (showJson) {
+                textContext.style.display = 'none';
+                jsonContext.style.display = 'block';
+                await loadContextJson(taskId);
+            } else {
+                textContext.style.display = 'block';
+                jsonContext.style.display = 'none';
+            }
+        }
+
+        async function loadContextJson(taskId) {
+            try {
+                const contextData = await fetch(`${API_BASE}/tasks/${taskId}/context?format=json`).then(r => r.json());
+                const jsonContainer = document.querySelector(`[data-task="${taskId}"] .context-json`);
+                
+                let html = `<div><strong>Context Budget:</strong> ${contextData.budget_chars} chars</div>`;
+                html += `<div><strong>Total Items:</strong> ${contextData.total_items}</div><br>`;
+                
+                for (const [sectionName, items] of Object.entries(contextData.sections)) {
+                    html += `<div class="section-header">${sectionName.toUpperCase()} (${items.length} items)</div>`;
+                    items.forEach(item => {
+                        html += `<div class="section-item">
+                            <span class="score-badge">${item.score}</span>
+                            ${escapeHtml(item.text)}
+                        </div>`;
+                    });
+                }
+                
+                jsonContainer.innerHTML = html;
+            } catch (error) {
+                const jsonContainer = document.querySelector(`[data-task="${taskId}"] .context-json`);
+                jsonContainer.innerHTML = '<div style="color: #dc2626;">Failed to load JSON context</div>';
+            }
+        }
+
         async function loadTask(taskId) {
             try {
                 const task = await fetch(`${API_BASE}/tasks/${taskId}`).then(r => r.json());
                 const files = await fetch(`${API_BASE}/tasks/${taskId}/files`).then(r => r.json());
+                
+                // Load context and notes
+                let context = '', notes = [];
+                try {
+                    const contextData = await fetch(`${API_BASE}/tasks/${taskId}/context`).then(r => r.json());
+                    context = contextData.context || 'No context available';
+                } catch (e) {
+                    context = 'Context not available';
+                }
+                
+                try {
+                    notes = await fetch(`${API_BASE}/tasks/${taskId}/notes`).then(r => r.json());
+                } catch (e) {
+                    notes = [];
+                }
 
                 const taskCard = document.createElement('div');
                 taskCard.className = 'task-card';
+                taskCard.setAttribute('data-task', taskId);
 
                 taskCard.innerHTML = `
-                    <div class="task-goal">${task.goal}</div>
+                    <div class="task-goal">${escapeHtml(task.goal)}</div>
                     <div>
                         <span class="task-status status-${task.status}">${task.status}</span>
                         <span style="margin-left: 10px; color: #6b7280; font-size: 14px;">
                             ID: ${task.id.split('-')[0]}... | Steps: ${task.steps.length}
                         </span>
+                        <a href="${API_BASE}/tasks/${taskId}/download" download="task-${taskId.split('-')[0]}.zip" 
+                           style="margin-left: 15px; font-size: 14px; color: #2563eb; text-decoration: none;">
+                           ⬇️ Download Bundle
+                        </a>
                     </div>
-                    ${files.length > 0 ? `
-                        <div class="screenshots">
-                            ${files.map(file => `
-                                <div class="screenshot">
-                                    <img src="${API_BASE}${file.url}" alt="Step ${file.step}" loading="lazy" />
-                                    <div class="screenshot-title">Step ${file.step}</div>
-                                </div>
-                            `).join('')}
+                    
+                    <div class="tabs">
+                        <button class="tab active" data-tab="overview" onclick="switchTab('${taskId}', 'overview')">Overview</button>
+                        <button class="tab" data-tab="activity" onclick="switchTab('${taskId}', 'activity')">Activity</button>
+                    </div>
+                    
+                    <div class="tab-content active" data-tab="overview">
+                        <div class="notes-section">
+                            <div class="context-title">📌 Pinned Notes</div>
+                            ${notes.length > 0 ? 
+                                notes.map(note => `
+                                    <div class="note-item">${escapeHtml(note.text)}</div>
+                                `).join('') : 
+                                '<div style="color: #6b7280; font-style: italic;">No pinned notes</div>'
+                            }
+                            <div class="add-note">
+                                <input type="text" placeholder="Add a note to pin important context (max 500 chars)..." id="note-input-${taskId}" 
+                                    maxlength="500" onkeypress="if(event.key==='Enter') { addNote('${taskId}', this.value); this.value=''; }">
+                                <button onclick="const input = document.getElementById('note-input-${taskId}'); addNote('${taskId}', input.value); input.value='';">Add Note</button>
+                            </div>
                         </div>
-                    ` : '<p style="margin-top: 15px; color: #6b7280;">No screenshots available</p>'}
+                        
+                        <div class="context-panel">
+                            <div class="context-title">🧠 Current Context (AI Memory)</div>
+                            <div class="context-toggle">
+                                <input type="checkbox" id="context-json-${taskId}" onchange="toggleContextFormat('${taskId}', this.checked)">
+                                <label for="context-json-${taskId}">Show section breakdown with scores</label>
+                            </div>
+                            <div class="context-text">
+                                <pre style="margin: 0; white-space: pre-wrap;">${escapeHtml(context)}</pre>
+                            </div>
+                            <div class="context-json" style="display: none;">
+                                Loading structured context...
+                            </div>
+                        </div>
+                        
+                        ${files.length > 0 ? `
+                            <div class="screenshots">
+                                ${files.map(file => `
+                                    <div class="screenshot">
+                                        <img src="${API_BASE}${file.url}" alt="Step ${file.step}" loading="lazy" />
+                                        <div class="screenshot-title">Step ${file.step}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        ` : '<p style="margin-top: 15px; color: #6b7280;">No screenshots available</p>'}
+                    </div>
+                    
+                    <div class="tab-content" data-tab="activity">
+                        <div class="context-title">📋 Activity Log</div>
+                        <div class="logs-panel">Select the Activity tab to view the live log stream.</div>
+                    </div>
                 `;
 
                 document.getElementById('tasks').appendChild(taskCard);
+                
+                // If the activity tab is active by default (e.g. from a URL param), start the stream
+                if (document.querySelector(`[data-task="${taskId}"] .tab[data-tab="activity"]`).classList.contains('active')) {
+                    startSseStream(taskId);
+                }
+
             } catch (error) {
                 console.error('Failed to load task:', taskId, error);
             }
         }
 
         // No more localStorage needed - we get tasks from the API!
+
+        // Run LLM Smoke Test function
+        async function runLlmSmokeTest() {
+            const statusEl = document.getElementById('smoke-test-status');
+            statusEl.textContent = 'Running LLM pipeline smoke test...';
+            statusEl.style.color = '#6b7280';
+            
+            try {
+                const resp = await fetch(`${API_BASE}/admin/run_llm_pipeline_smoke_test`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
+                });
+                
+                if (resp.ok) {
+                    const result = await resp.json();
+                    if (result.ok) {
+                        const server = result.server_detected ? ` (server: ${result.server_detected})` : '';
+                        statusEl.textContent = `✅ Smoke test passed: ${result.summary}${server}`;
+                        statusEl.style.color = '#059669';
+                    } else {
+                        statusEl.textContent = `❌ Smoke test failed: ${result.summary}`;
+                        statusEl.style.color = '#dc2626';
+                    }
+                } else {
+                    const errorText = await resp.text();
+                    statusEl.textContent = `❌ HTTP ${resp.status}: ${errorText}`;
+                    statusEl.style.color = '#dc2626';
+                }
+            } catch (error) {
+                statusEl.textContent = `❌ Error: ${error.message}`;
+                statusEl.style.color = '#dc2626';
+            }
+        }
+
+        // Function to trigger task bundle download
+        function downloadTaskBundle(taskId) {
+            window.location.href = `${API_BASE}/tasks/${taskId}/download`;
+        }
 
         // Load tasks on page load
         loadTasks();
