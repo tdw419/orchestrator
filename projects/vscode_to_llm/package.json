@@ -1,0 +1,144 @@
+{
+  "name": "lm-studio-orchestrator",
+  "displayName": "LM Studio Orchestrator",
+  "description": "Desktop automation extension connecting VS Code to LM Studio via orchestrator",
+  "version": "0.1.0",
+  "publisher": "lmstudio-orchestrator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/local/lm-studio-orchestrator"
+  },
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:lmstudio.createTask",
+    "onCommand:lmstudio.viewTasks",
+    "onCommand:lmstudio.startOrchestrator",
+    "onCommand:lmstudio.stopOrchestrator",
+    "onCommand:lmstudio.openChat",
+    "onCommand:lmstudio.askAboutSelection",
+    "onCommand:lmstudio.developWithAI",
+    "onView:lmstudio.chatView"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "lmstudio",
+          "title": "LM Studio",
+          "icon": "$(robot)"
+        }
+      ]
+    },
+    "views": {
+      "lmstudio": [
+        {
+          "id": "lmstudio.chatView",
+          "name": "Chat",
+          "type": "webview",
+          "when": "true"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "lmstudio.createTask",
+        "title": "LM Studio: Create Automation Task"
+      },
+      {
+        "command": "lmstudio.viewTasks",
+        "title": "LM Studio: View Tasks"
+      },
+      {
+        "command": "lmstudio.startOrchestrator",
+        "title": "LM Studio: Start Orchestrator"
+      },
+      {
+        "command": "lmstudio.stopOrchestrator",
+        "title": "LM Studio: Stop Orchestrator"
+      },
+      {
+        "command": "lmstudio.openChat",
+        "title": "LM Studio: Open Chat"
+      },
+      {
+        "command": "lmstudio.askAboutSelection",
+        "title": "LM Studio: Ask About Selection"
+      },
+      {
+        "command": "lmstudio.developWithAI",
+        "title": "LM Studio: Develop with AI"
+      }
+    ],
+    "configuration": {
+      "title": "LM Studio Orchestrator",
+      "properties": {
+        "lmstudio.orchestrator.port": {
+          "type": "number",
+          "default": 4100,
+          "description": "Port for the orchestrator server."
+        },
+        "lmstudio.apiUrl": {
+          "type": "string",
+          "default": "http://localhost:1234/v1",
+          "description": "LM Studio API URL."
+        },
+        "lmstudio.modelName": {
+          "type": "string",
+          "default": "lmstudio-community/Meta-Llama-3-8B-Instruct-GGUF",
+          "description": "LM Studio model name."
+        },
+        "lmstudio.maxSteps": {
+          "type": "number",
+          "default": 8,
+          "description": "Maximum steps per task."
+        },
+        "lmstudio.orchestrator.baseUrl": {
+          "type": "string",
+          "default": "http://localhost:4100",
+          "description": "Base URL for the orchestrator server."
+        },
+        "lmstudio.orchestrator.entryPath": {
+          "type": "string",
+          "default": "C:\\zion\\wwwroot\\projects\\orchestrator\\orchestrator\\windows-orchestrator\\index.js",
+          "description": "Path to the orchestrator entry point."
+        },
+        "lmstudio.orchestrator.adminToken": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Admin token for orchestrator '/admin/*' routes. If set, the extension sends 'Authorization: Bearer <token>'."
+        },
+        "lmstudio.systemPrompt": {
+          "type": "string",
+          "default": "You are a helpful coding assistant inside VS Code. Be concise and provide actionable answers.",
+          "description": "System prompt used for LM Studio chat."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
+    "@vscode/test-electron": "^2.2.0",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {}
+}
