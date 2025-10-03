@@ -1,0 +1,6 @@
+version: 1
+name: speckit_t052_verifier_loader_impl
+steps:
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T052_verifier_loader_impl.sh

@@ -1,0 +1,6 @@
+version: 1
+name: speckit_t061_speckit_runner_tests
+steps:
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T061_speckit_runner_tests.sh

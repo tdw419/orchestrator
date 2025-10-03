@@ -1,0 +1,6 @@
+version: 1
+name: speckit_t051_verifier_loader_tests
+steps:
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T051_verifier_loader_tests.sh

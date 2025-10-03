@@ -1,0 +1,43 @@
+name: lmstudio_reasoning
+description: Template demonstrating LM Studio reasoning capabilities
+steps:
+  - id: analyze
+    type: reason
+    prompt: |
+      Given the current context, analyze the following requirements and break them down into concrete implementation steps:
+
+      ${requirements}
+
+      Provide a structured list of steps, with explanations for each decision.
+    context: |
+      You are a software architect helping to plan implementation details.
+      Focus on practical, actionable steps that can be executed.
+      Consider testing and validation requirements.
+
+  - id: validate
+    type: reason
+    prompt: |
+      Review the proposed implementation steps and identify potential issues or improvements:
+
+      ${previous_step_output}
+
+      List any concerns, edge cases, or additional considerations that should be addressed.
+    context: |
+      You are performing a technical review of the implementation plan.
+      Focus on technical feasibility, security implications, and potential bottlenecks.
+
+  - id: summarize
+    type: reason
+    prompt: |
+      Create a concise summary of the final implementation plan, incorporating the analysis and validation feedback:
+
+      Analysis:
+      ${steps.analyze.output}
+
+      Validation:
+      ${steps.validate.output}
+
+      Format the summary as a markdown document with clear sections for setup, implementation, and testing.
+    context: |
+      You are documenting the final implementation plan for the development team.
+      Include concrete next steps and any prerequisites that need to be addressed.

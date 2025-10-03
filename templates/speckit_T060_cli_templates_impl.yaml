@@ -1,0 +1,6 @@
+version: 1
+name: speckit_t060_cli_templates_impl
+steps:
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T060_cli_templates_impl.sh

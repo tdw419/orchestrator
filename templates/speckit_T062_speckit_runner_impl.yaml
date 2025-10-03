@@ -1,0 +1,6 @@
+version: 1
+name: speckit_t062_speckit_runner_impl
+steps:
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T062_speckit_runner_impl.sh

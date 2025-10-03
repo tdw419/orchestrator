@@ -1,0 +1,6 @@
+version: 1
+name: speckit_t053_diagnostics_tests
+steps:
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T053_diagnostics_tests.sh

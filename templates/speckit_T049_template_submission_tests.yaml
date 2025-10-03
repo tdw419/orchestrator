@@ -1,0 +1,6 @@
+version: 1
+name: speckit_t049_template_submission_tests
+steps:
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T049_template_submission_tests.sh

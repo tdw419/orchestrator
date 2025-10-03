@@ -1,0 +1,6 @@
+version: 1
+name: speckit_t048_template_impl
+steps:
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T048_template_implementation.sh

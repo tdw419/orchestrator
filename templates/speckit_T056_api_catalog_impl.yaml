@@ -1,0 +1,6 @@
+version: 1
+name: speckit_t056_api_catalog_impl
+steps:
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T056_api_catalog_impl.sh

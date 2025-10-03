@@ -1,0 +1,27 @@
+version: 1
+name: speckit_phase10
+steps:
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T047_template_tests.sh
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T048_template_implementation.sh
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T049_template_submission_tests.sh
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T050_template_submission_impl.sh
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T051_verifier_loader_tests.sh
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T052_verifier_loader_impl.sh
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T053_diagnostics_tests.sh
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T054_diagnostics_impl.sh

@@ -1,0 +1,6 @@
+version: 1
+name: speckit_t054_diagnostics_impl
+steps:
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T054_diagnostics_impl.sh

@@ -1,0 +1,6 @@
+version: 1
+name: speckit_t059_cli_templates_tests
+steps:
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T059_cli_templates_tests.sh

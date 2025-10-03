@@ -1,0 +1,6 @@
+version: 1
+name: speckit_t055_api_catalog_tests
+steps:
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T055_api_catalog_tests.sh

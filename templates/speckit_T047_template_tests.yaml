@@ -1,0 +1,6 @@
+version: 1
+name: speckit_t047_template_tests
+steps:
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T047_template_tests.sh

@@ -1,0 +1,6 @@
+name: "SpecKit T055 - API Catalog/Run Endpoint Tests"
+description: "Run tests for API catalog and run endpoints"
+command: "bash scripts/speckit/T055_api_tests.sh"
+verifier: "jest_verifier"
+env:
+  NODE_ENV: "test"

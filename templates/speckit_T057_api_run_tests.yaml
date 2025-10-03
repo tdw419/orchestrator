@@ -1,0 +1,6 @@
+version: 1
+name: speckit_t057_api_run_tests
+steps:
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T057_api_run_tests.sh

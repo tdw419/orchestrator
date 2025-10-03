@@ -1,0 +1,6 @@
+version: 1
+name: speckit_t058_api_run_impl
+steps:
+  - action: run_shell
+    cwd: .
+    cmd: ./scripts/speckit/T058_api_run_impl.sh
