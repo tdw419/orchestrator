@@ -73,15 +73,35 @@
       {
         "command": "lmstudio.developWithAI",
         "title": "LM Studio: Develop with AI"
+      },
+      {
+        "command": "orchestrator.convertRoadmap",
+        "title": "Orchestrator: Convert Roadmap to SpecKit Tasks",
+        "category": "Orchestrator"
+      },
+      {
+        "command": "orchestrator.browseTemplates",
+        "title": "Orchestrator: Browse and Run Templates",
+        "category": "Orchestrator"
+      },
+      {
+        "command": "orchestrator.runSpecKitPhase",
+        "title": "Orchestrator: Run SpecKit Phase",
+        "category": "Orchestrator"
       }
     ],
     "configuration": {
       "title": "LM Studio Orchestrator",
       "properties": {
-        "lmstudio.orchestrator.port": {
+        "orchestrator.apiUrl": {
+          "type": "string",
+          "default": "http://localhost:4100",
+          "description": "Base URL for the orchestrator server."
+        },
+        "orchestrator.timeoutMs": {
           "type": "number",
-          "default": 4100,
-          "description": "Port for the orchestrator server."
+          "default": 30000,
+          "description": "Timeout for orchestrator API calls (milliseconds)."
         },
         "lmstudio.apiUrl": {
           "type": "string",
