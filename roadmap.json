@@ -1,146 +1,66 @@
 [
   {
-    "id": "llm-egui-panel",
-    "title": "Add egui panel for LLM features",
-    "phase": 1,
-    "priority": 0,
-    "complexity": "medium",
-    "prompt": "Implement an egui panel in the map_os_bevy application to display and filter LLM-generated features. The panel should show a list of features, their properties (name, type, confidence, admin), and allow filtering by type or text search. Clicking a feature should center the map on its location. Ensure the UI is responsive and integrates well with the existing egui setup."
-  },
-  {
-    "id": "llm-sqlite-persistence",
-    "title": "Implement SQLite persistence for LLM features",
-    "phase": 1,
-    "priority": 0,
-    "complexity": "medium",
-    "prompt": "Modify the map_os_bevy application to persist LLM-generated features and their embeddings to an SQLite database. Implement functions to save and load the LlmFeatures and their associated embeddings from the database. Ensure data integrity and efficient storage/retrieval. The database file should be configurable."
-  },
-  {
-    "id": "llm-pipeline-smoke-test",
-    "title": "LLM pipeline smoke test",
-    "phase": 1,
-    "priority": 0,
-    "complexity": "low",
-    "prompt": "Create an end-to-end smoke test for the LLM integration pipeline. This test should: 1) Start the map_os_bevy application (if not already running), 2) Use the new 'ws_send' orchestrator action to send an 'ingest_llm_data' command with sample GeoJSON, 3) Send a 'get_llm_features' command, 4) Verify that the response contains the ingested features, 5) Optionally, send 'self_organize_features' commands (cluster, dedupe, retag) and verify their effects. The test should report success or failure based on the WebSocket responses."
-  },
-  {
-    "id": "sec-admin-token",
-    "title": "Protect admin endpoints with ORCH_ADMIN_TOKEN",
+    "id": "vscode-roadmap",
+    "title": "VS Code AI Roadmap Generation",
     "phase": 1,
     "priority": 1,
     "complexity": "medium",
-    "prompt": "Implement bearer token protection for /admin/* routes in windows-orchestrator/index.js using environment variable ORCH_ADMIN_TOKEN. Create middleware that validates Authorization: Bearer <token> headers. Return 401 when missing or invalid. Add token parameter to start script. Update README with security documentation. Keep changes minimal, no external deps."
+    "prompt": "Create VS Code extension command for AI-assisted roadmap generation. Add roadmap.json schema validation, AI prompt templates for breaking down features into tasks. Support interactive refinement via VS Code UI. Store roadmaps in project root with version control integration."
   },
   {
-    "id": "input-limits",
-    "title": "Request size and rate limiting",
+    "id": "orchestrator-converter",
+    "title": "Orchestrator SpecKit Converter",
     "phase": 1,
     "priority": 2,
-    "complexity": "medium",
-    "prompt": "Add request size limiting (10MB max) and rate limiting (100 requests per minute per IP) to the orchestrator. Implement middleware for body size validation and in-memory rate limiting tracker. Add appropriate HTTP 413 and 429 status codes. Add MAX_REQUEST_SIZE_MB and RATE_LIMIT_RPM environment variables with defaults."
+    "complexity": "high",
+    "prompt": "Implement POST /automation/roadmap endpoint that converts roadmap entries into SpecKit documents and tasks. Create conversion templates for docs/tasks generation. Add validation for SpecKit format compliance. Include git integration for committing changes."
   },
   {
-    "id": "retention-quotas",
-    "title": "Add disk retention and quotas",
+    "id": "speckit-generator",
+    "title": "SpecKit Document Generator",
     "phase": 1,
     "priority": 3,
     "complexity": "high",
-    "prompt": "Add retention controls: MAX_TASKS_ON_DISK, MAX_LOG_LINES_PER_TASK, MAX_SHOTS_MB. Create cleanup job that removes oldest tasks beyond limits, truncates large messages.jsonl files, and deletes old screenshots. Add startup validation and disk usage reporting in /health. Document env vars in README. Keep logic simple and safe."
+    "prompt": "Add SpecKit document generation to orchestrator. Create templates for specs/*/tasks.md, implementation guides, test plans. Support phase/task ID allocation. Maintain markdown formatting and links. Include validation for generated content."
   },
   {
-    "id": "error-resilience",
-    "title": "LLM retry and backoff",
-    "phase": 1,
+    "id": "vscode-trigger",
+    "title": "VS Code Orchestrator Integration",
+    "phase": 2,
     "priority": 4,
     "complexity": "medium",
-    "prompt": "Add exponential backoff and retry logic for LLM calls in callLLM and generateRollingSummary functions. Implement single retry on 5xx errors, connection timeouts, and network failures with 1-second initial backoff. Add PLANNER_MAX_RETRIES (default 1) and PLANNER_BACKOFF_MS (default 1000) environment variables. Log retry attempts."
+    "prompt": "Add VS Code commands to trigger orchestrator conversion and execution. Create status UI for monitoring conversion/execution progress. Support parameter input and template selection. Add error handling and retry logic."
   },
   {
-    "id": "step-metrics",
-    "title": "Per-step metrics collection", 
+    "id": "lmstudio-executor",
+    "title": "LM Studio Task Executor",
     "phase": 2,
     "priority": 5,
-    "complexity": "medium",
-    "prompt": "Add comprehensive per-step metrics to the orchestrator. Record step duration, token counts (from LLM responses when available), error rates in steps.json. Create GET /tasks/:id/metrics endpoint returning aggregated metrics. Include average step time, total tokens, error count, success percentage in task summaries."
+    "complexity": "high",
+    "prompt": "Implement LM Studio integration for task execution. Configure OPENAI_API_BASE for LM Studio. Create execution templates with reasoning steps. Add retry logic and error handling. Support streaming updates to VS Code."
   },
   {
-    "id": "zip-download",
-    "title": "Task ZIP download endpoint",
+    "id": "autopilot-runtime",
+    "title": "AI Autopilot Runtime",
     "phase": 2,
     "priority": 6,
-    "complexity": "medium",
-    "prompt": "Add GET /tasks/:id/download endpoint returning ZIP archive with data/tasks/<id> contents (meta.json, messages.jsonl, steps.json, context.txt, summary.txt, notes.json) plus related screenshots from shots/. Use Node.js built-in zlib for ZIP creation. Set proper Content-Type and Content-Disposition headers. Update README.""
+    "complexity": "high",
+    "prompt": "Create AI runtime for autonomous task execution. Implement decision-making templates for code changes. Add safety checks and human approval steps. Support parallel task execution where possible. Include detailed logging and metrics."
   },
   {
-    "id": "structured-logging",
-    "title": "JSON structured logging",
-    "phase": 2,
+    "id": "e2e-workflow",
+    "title": "End-to-End Workflow Tests",
+    "phase": 3,
     "priority": 7,
     "complexity": "medium",
-    "prompt": "Replace console.log with structured JSON logging. Create logging utility with levels (debug, info, warn, error), timestamps, correlation IDs, and optional file output. Add LOG_LEVEL and LOG_FILE environment variables. Include request IDs for API call tracing. Maintain backwards compatibility for development.""
+    "prompt": "Implement end-to-end tests for complete workflow: VS Code → Orchestrator → SpecKit → LM Studio. Test roadmap conversion, document generation, task execution. Include mock LLM responses and git operations. Verify all integration points."
   },
   {
-    "id": "health-detailed",
-    "title": "Enhanced health checks",
-    "phase": 2,
+    "id": "docs-templates",
+    "title": "Documentation Templates",
+    "phase": 3,
     "priority": 8,
-    "complexity": "medium",
-    "prompt": "Enhance /health endpoint with comprehensive system checks: LLM connectivity test, disk space, memory usage, task queue status, Auto Dev integration status. Create /health/detailed endpoint with full diagnostics. Return 503 for unhealthy states.""
-  },
-  {
-    "id": "pin-artifacts",
-    "title": "Pin artifacts from viewer",
-    "phase": 3,
-    "priority": 9,
     "complexity": "low",
-    "prompt": "In viewer.html, add 'Pin to Notes' buttons on screenshot cards and Auto Dev outputs. When clicked, create note with artifact reference (filename, URL). Update notes rendering to show pinned artifacts as quick links. Ensure HTML sanitization and immediate context panel updates.""
-  },
-  {
-    "id": "context-toggles",
-    "title": "Context section toggles",
-    "phase": 3,
-    "priority": 10,
-    "complexity": "medium",
-    "prompt": "Add checkboxes in viewer context panel to show/hide sections (notes, errors, results, autodev, artifacts). Use JSON context endpoint for dynamic visibility. Store preferences in localStorage. Update context display in real-time. Maintain section priority ordering when hidden.""
-  },
-  {
-    "id": "dark-mode",
-    "title": "Add viewer dark mode",
-    "phase": 3,
-    "priority": 11,
-    "complexity": "low",
-    "prompt": "Implement dark mode for viewer using CSS custom properties. Add theme toggle button with sun/moon icons. Store preference in localStorage with automatic system theme detection via prefers-color-scheme. Update all colors for proper contrast. Ensure screenshots and code blocks remain readable.""
-  },
-  {
-    "id": "task-search",
-    "title": "Task search and filtering",
-    "phase": 3,
-    "priority": 12,
-    "complexity": "medium",
-    "prompt": "Add task search and filtering to viewer. Implement search by goal text, status filter (running/done/error), date range picker. Add pagination with configurable page size. Update GET /tasks endpoint with query parameters: ?search=text&status=done&limit=10&offset=0. Include result counts and navigation.""
-  },
-  {
-    "id": "windows-service",
-    "title": "Windows Service support",
-    "phase": 4,
-    "priority": 13,
-    "complexity": "high",
-    "prompt": "Create Windows Service installer and wrapper for background operation. Add install-service.ps1 that registers orchestrator as Windows service with automatic startup. Create service wrapper handling lifecycle events, Event Log logging, registry configuration. Include uninstall script and management commands.""
-  },
-  {
-    "id": "config-profiles",
-    "title": "Configuration profiles",
-    "phase": 4,
-    "priority": 14,
-    "complexity": "medium",
-    "prompt": "Add configuration profile support with .env file loading and ORCH_PROFILE environment variable. Create example profiles (dev.env, prod.env, test.env). Implement profile switching loading environment variables from files. Add profile validation and clear error messages for missing configs.""
-  },
-  {
-    "id": "quality-gates",
-    "title": "Automated testing gates",
-    "phase": 5,
-    "priority": 15,
-    "complexity": "high",
-    "prompt": "Implement automated testing with API endpoint tests, viewer functionality tests, integration smoke tests. Create test suite validating all endpoints, context assembly, note management, viewer interactions. Add test script running before roadmap improvements. Include performance and security validation using Node.js built-in test runner.""
+    "prompt": "Create documentation templates for generated SpecKit content. Include implementation guides, test plans, architecture docs. Support markdown formatting and diagrams. Add validation for doc completeness and links."
   }
 ]
